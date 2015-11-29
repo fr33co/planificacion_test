@@ -81,3 +81,11 @@ class PlanificacionClases(models.Model):
     nivel_id = fields.Many2one('planificacion.nivel', string="Nivel")
     asignatura_id = fields.Many2one('planificacion.asignaturas', string="Asignatura")
     objetivo = fields.Text(string="Objetivo")
+    clases_lines = fields.One2many('planificacion.clases.lines', 'clases_id', string="Lineas de clases")
+
+
+class PlanificacionClasesLines(models.Model):
+    _name = 'planificacion.clases.lines'
+
+    clases_id = fields.Many2one('planificacion.clases', string="Clases")
+    curriculo_id = fields.Many2one('planificacion.curriculo', string="Curriculo")
