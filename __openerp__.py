@@ -11,7 +11,7 @@
     """,
     'author': "Angel A. Guadarrama B.",
     'website': "https://ve.linkedin.com/in/aguadarrama",
-    'depends': ['base', 'web', 'product', 'sale'],
+    'depends': ['base', 'web', 'knowledge'],
     'data': [
         'view/planificacion.xml',
     ],

@@ -338,7 +338,7 @@
             <field name="name">planificacion.clases.form</field>
             <field name="model">planificacion.clases</field>
             <field name="arch" type="xml" >
-                <form string="Clases">                    
+                <form string="Clases">
                     <group>
                         <group>
                             <field name="name"/>
@@ -354,7 +354,25 @@
                         </group>
                     </group>
                     <field name="objetivo"/>
-                    <field name="clases_lines" string="Lineas"/>
+                    <notebook>
+                        <page string="Curriculo">
+                            <field name="planificacion_clases_lines" string="Lineas"/>
+                        </page>
+                        <page string="Ajuntar archivo">
+                                                            <div class='oe_right oe_button_box' name='buttons'>
+                                    <button name='attachment_tree_view' type='object' string='Añadir adjunto'/>
+                                </div>
+                            <group col='4'>
+
+                                <field name='adjunto' nolabel='1'>
+                                    <tree string='Adjuntos'>
+                                        <field name='name'/>
+                                        <field name='description'/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
                 </form>
             </field>
         </record>
