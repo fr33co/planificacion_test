@@ -354,7 +354,7 @@
                         </group>
                     </group>
                     <field name="objetivo"/>
-                    <field name="clases_lines"/>
+                    <field name="clases_lines" string="Lineas"/>
                 </form>
             </field>
         </record>
