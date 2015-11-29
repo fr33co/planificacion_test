@@ -92,10 +92,10 @@ class PlanificacionClases(models.Model):
     asignatura_id = fields.Many2one('planificacion.asignaturas', string="Asignatura")
     objetivo = fields.Text(string="Objetivo")
     planificacion_clases_lines = fields.One2many('planificacion.clases.lines', 'clases_id', string="Lineas de clases")
-    adjunto = fields.One2many('ir.attachment',compute='_get_images')
+    adjunto = fields.One2many('ir.attachment',compute='_get_adjuntos')
 
 
-    def _get_images(self):
+    def _get_adjuntos(self):
         for rec in self:
             attachments = self.env['ir.attachment'].search([('res_model','=','planificacion.clases'),('res_id','=',rec.id)])
             self.adjunto = attachments

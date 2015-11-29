@@ -359,9 +359,9 @@
                             <field name="planificacion_clases_lines" string="Lineas"/>
                         </page>
                         <page string="Ajuntar archivo">
-                                                            <div class='oe_right oe_button_box' name='buttons'>
-                                    <button name='attachment_tree_view' type='object' string='Añadir adjunto'/>
-                                </div>
+                            <div class='oe_right oe_button_box' name='buttons'>
+                                <button name='attachment_tree_view' type='object' string='Añadir adjunto'/>
+                            </div>
                             <group col='4'>
 
                                 <field name='adjunto' nolabel='1'>
