@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+<!--NIVEL-->
+
+        <record model="ir.actions.act_window" id="nivel_action">
+            <field name="name">Nivel</field>
+            <field name="res_model">planificacion.nivel</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record model="ir.ui.view" id="nivel_tree_view">
+            <field name="name">planificacion.nivel.tree</field>
+            <field name="model">planificacion.nivel</field>
+            <field name="arch" type="xml">
+                <tree string="Nivel">
+                    <field name="name"/>
+                    <field name="institucion_id"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="nivel_form_view">
+            <field name="name">planificacion.nivel.form</field>
+            <field name="model">planificacion.nivel</field>
+            <field name="arch" type="xml" >
+                <form string="Nivel">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="institucion_id"/>
+                        </group>
+                        <group>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+<!--TIPO-->
+
+        <record model="ir.actions.act_window" id="tipo_action">
+            <field name="name">Tipo</field>
+            <field name="res_model">planificacion.tipo</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record model="ir.ui.view" id="tipo_tree_view">
+            <field name="name">planificacion.tipo.tree</field>
+            <field name="model">planificacion.tipo</field>
+            <field name="arch" type="xml">
+                <tree string="Tipo">
+                    <field name="name"/>
+                    <field name="institucion_id"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="tipo_form_view">
+            <field name="name">planificacion.tipo.form</field>
+            <field name="model">planificacion.tipo</field>
+            <field name="arch" type="xml" >
+                <form string="Tipo">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="institucion_id"/>
+                        </group>
+                        <group>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+<!--UNIDADES-->
+
+        <record model="ir.actions.act_window" id="unidades_action">
+            <field name="name">Unidades</field>
+            <field name="res_model">planificacion.unidades</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record model="ir.ui.view" id="unidades_tree_view">
+            <field name="name">planificacion.unidades.tree</field>
+            <field name="model">planificacion.unidades</field>
+            <field name="arch" type="xml">
+                <tree string="Unidades">
+                    <field name="name"/>
+                    <field name="institucion_id"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="unidades_form_view">
+            <field name="name">planificacion.unidades.form</field>
+            <field name="model">planificacion.unidades</field>
+            <field name="arch" type="xml" >
+                <form string="Unidades">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="institucion_id"/>
+                        </group>
+                        <group>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+<!--ASIGNATURAS-->
+
+        <record model="ir.actions.act_window" id="asignaturas_action">
+            <field name="name">Asignaturas</field>
+            <field name="res_model">planificacion.asignaturas</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record model="ir.ui.view" id="asignaturas_tree_view">
+            <field name="name">planificacion.asignaturas.tree</field>
+            <field name="model">planificacion.asignaturas</field>
+            <field name="arch" type="xml">
+                <tree string="Asignaturas">
+                    <field name="name"/>
+                    <field name="institucion_id"/>
+                    <field name="nivel_id"/>
+                    <field name="horas"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="asignaturas_form_view">
+            <field name="name">planificacion.asignaturas.form</field>
+            <field name="model">planificacion.asignaturas</field>
+            <field name="arch" type="xml" >
+                <form string="Asignaturas">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="institucion_id"/>
+                        </group>
+                        <group>
+                            <field name="nivel_id"/>
+                            <field name="horas"/>
+                        </group>
+                        <group>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+<!--EJES-->
+
+        <record model="ir.actions.act_window" id="ejes_action">
+            <field name="name">Ejes</field>
+            <field name="res_model">planificacion.ejes</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record model="ir.ui.view" id="ejes_tree_view">
+            <field name="name">planificacion.ejes.tree</field>
+            <field name="model">planificacion.ejes</field>
+            <field name="arch" type="xml">
+                <tree string="Ejes">
+                    <field name="name"/>
+                    <field name="institucion_id"/>
+                    <field name="nivel_id"/>
+                    <field name="asignatura_id"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="ejes_form_view">
+            <field name="name">planificacion.ejes.form</field>
+            <field name="model">planificacion.ejes</field>
+            <field name="arch" type="xml" >
+                <form string="Ejes">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="institucion_id"/>
+                        </group>
+                        <group>
+                            <field name="nivel_id"/>
+                            <field name="asignatura_id"/>
+                        </group>
+                        <group>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+<!--CURRICULO-->
+        
+        <record model="ir.actions.act_window" id="curriculo_action">
+            <field name="name">Curriculo</field>
+            <field name="res_model">planificacion.curriculo</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record model="ir.ui.view" id="curriculo_tree_view">
+            <field name="name">planificacion.curriculo.tree</field>
+            <field name="model">planificacion.curriculo</field>
+            <field name="arch" type="xml">
+                <tree string="Curriculo">
+                    <field name="name"/>
+                    <field name="institucion_id"/>
+                    <field name="nivel_id"/>
+                    <field name="asignatura_id"/>
+                    <field name="active"/>
+                    <field name="eje_id"/>
+                    <field name="tipo_id"/>
+                    <field name="unidad_id"/>
+                </tree>
+            </field>
+        </record>
+    
+        <record model="ir.ui.view" id="curriculo_form_view">
+            <field name="name">planificacion.curriculo.form</field>
+            <field name="model">planificacion.curriculo</field>
+            <field name="arch" type="xml" >
+                <form string="Curriculo">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="institucion_id"/>
+                        </group>
+                        <group>
+                            <field name="nivel_id"/>
+                            <field name="asignatura_id"/>
+                        </group>
+                        <group>
+                            <field name="active"/>
+                            <field name="eje_id"/>
+                        </group>
+                        <group>
+                            <field name="tipo_id"/>
+                            <field name="unidad_id"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+<!--INDICADORES-->
+
+        <record model="ir.actions.act_window" id="indicadores_action">
+            <field name="name">Indicadores</field>
+            <field name="res_model">planificacion.indicadores</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record model="ir.ui.view" id="indicadores_tree_view">
+            <field name="name">planificacion.indicadores.tree</field>
+            <field name="model">planificacion.indicadores</field>
+            <field name="arch" type="xml">
+                <tree string="Indicadores">
+                    <field name="name"/>
+                    <field name="institucion_id"/>
+                    <field name="active"/>
+                    <field name="eje_id"/>
+                    <field name="unidad_id"/>
+                    <field name="curriculo_id"/>
+                </tree>
+            </field>
+        </record>
+    
+        <record model="ir.ui.view" id="indicadores_form_view">
+            <field name="name">planificacion.indicadores.form</field>
+            <field name="model">planificacion.indicadores</field>
+            <field name="arch" type="xml" >
+                <form string="Indicadores">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="institucion_id"/>
+                        </group>
+                        <group>
+                            <field name="active"/>
+                            <field name="eje_id"/>
+                        </group>
+                        <group>
+                            <field name="unidad_id"/>
+                            <field name="curriculo_id"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+<!--CLASES-->
+
+        <record model="ir.actions.act_window" id="clases_action">
+            <field name="name">Clases</field>
+            <field name="res_model">planificacion.clases</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record model="ir.ui.view" id="clases_tree_view">
+            <field name="name">planificacion.clases.tree</field>
+            <field name="model">planificacion.clases</field>
+            <field name="arch" type="xml">
+                <tree string="Clases">
+                    <field name="name"/>
+                    <field name="fecha"/>
+                    <field name="institucion_id"/>
+                    <field name="active"/>
+                    <field name="nivel_id"/>
+                    <field name="asignatura_id"/>
+                    <field name="objetivo"/>
+                </tree>
+            </field>
+        </record>
+    
+        <record model="ir.ui.view" id="clases_form_view">
+            <field name="name">planificacion.clases.form</field>
+            <field name="model">planificacion.clases</field>
+            <field name="arch" type="xml" >
+                <form string="Clases">                    
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="fecha"/>
+                        </group>
+                        <group>
+                            <field name="institucion_id"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="nivel_id"/>
+                            <field name="asignatura_id"/>
+                        </group>
+                    </group>
+                    <field name="objetivo"/>
+                </form>
+            </field>
+        </record>
+
+        <menuitem id="main_planificacion_menu" name="Planificacion Test"/>
+        <menuitem id="clases_planificacion_menu" name="Clases" parent="main_planificacion_menu" sequence="10"/>
+        <menuitem id="clases_menu" name="Clases" parent="clases_planificacion_menu" action="clases_action" sequence="1"/>
+        
+        <menuitem id="configuracion_planificacion_menu" name="Configuración" parent="main_planificacion_menu" sequence="20"/>
+        <menuitem id="nivel_menu" name="Nivel" parent="configuracion_planificacion_menu" action="nivel_action" sequence="1"/>
+        <menuitem id="tipo_menu" name="Tipo" parent="configuracion_planificacion_menu" action="tipo_action" sequence="2"/>
+        <menuitem id="unidades_menu" name="Unidades" parent="configuracion_planificacion_menu" action="unidades_action" sequence="3"/>
+        <menuitem id="asignaturas_menu" name="Asignaturas" parent="configuracion_planificacion_menu" action="asignaturas_action" sequence="4"/>
+        <menuitem id="ejes_menu" name="Ejes" parent="configuracion_planificacion_menu" action="ejes_action" sequence="5"/>
+        <menuitem id="curriculo_menu" name="Curriculo" parent="configuracion_planificacion_menu" action="curriculo_action" sequence="6"/>
+        <menuitem id="indicadores_menu" name="Indicadores" parent="configuracion_planificacion_menu" action="indicadores_action" sequence="7"/>
+                
+    </data>
+</openerp>
