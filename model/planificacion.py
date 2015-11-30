@@ -78,7 +78,7 @@ class PlanificacionIndicadores(models.Model):
     eje_id = fields.Many2one('planificacion.ejes', string="Eje")
     unidad_id = fields.Many2one('planificacion.unidades', string="Unidad")
     curriculo_id = fields.Many2one('planificacion.curriculo', string="Curriculo")
-    
+    clases_lines_id = fields.Many2one('planificacion.clases.lines', string="Clases Lines")
     
 class PlanificacionClases(models.Model):
     _name = 'planificacion.clases'
@@ -122,4 +122,4 @@ class PlanificacionClasesLines(models.Model):
 
     clases_id = fields.Many2one('planificacion.clases', string="Clases")
     curriculo_id = fields.Many2one('planificacion.curriculo', string="Curriculo")
-    
+    indicadores_ids = fields.One2many('planificacion.indicadores', 'clases_lines_id', string="Indicadores")

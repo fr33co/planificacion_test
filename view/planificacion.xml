@@ -377,6 +377,44 @@
             </field>
         </record>
 
+<!--CLASES LINES-->
+
+        <record model="ir.actions.act_window" id="clases_lines_action">
+            <field name="name">Clases Lines</field>
+            <field name="res_model">planificacion.clases.lines</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record model="ir.ui.view" id="clases_lines_tree_view">
+            <field name="name">planificacion.clases.lines.tree</field>
+            <field name="model">planificacion.clases.lines</field>
+            <field name="arch" type="xml">
+                <tree string="Clases Lines">
+                    <field name="curriculo_id"/>
+                </tree>
+            </field>
+        </record>
+    
+        <record model="ir.ui.view" id="clases_lines_form_view">
+            <field name="name">planificacion.clases.lines.form</field>
+            <field name="model">planificacion.clases.lines</field>
+            <field name="arch" type="xml" >
+                <form string="Clases Lines">
+                    <group>
+                        <group>
+                            <field name="curriculo_id"/>
+                        </group>
+                    </group>
+                    <field name="indicadores_ids" widget="many2many">
+                        <tree string="Indicadores">
+                            <field name="name" />
+                        </tree>
+                    </field>
+                </form>
+            </field>
+        </record>
+
         <menuitem id="main_planificacion_menu" name="Planificacion Test"/>
         <menuitem id="clases_planificacion_menu" name="Clases" parent="main_planificacion_menu" sequence="10"/>
         <menuitem id="clases_menu" name="Clases" parent="clases_planificacion_menu" action="clases_action" sequence="1"/>
