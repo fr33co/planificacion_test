@@ -56,7 +56,6 @@ class PlanificacionEjes(models.Model):
 class PlanificacionCurriculo(models.Model):
     _name = 'planificacion.curriculo'
     _order = 'name'
-        
 
     name = fields.Char(string="Descripción")
     institucion_id = fields.Many2one('res.company', string="Institucion")
@@ -79,6 +78,7 @@ class PlanificacionIndicadores(models.Model):
     unidad_id = fields.Many2one('planificacion.unidades', string="Unidad")
     curriculo_id = fields.Many2one('planificacion.curriculo', string="Curriculo")
     clases_lines_id = fields.Many2one('planificacion.clases.lines', string="Clases Lines")
+    
     
 class PlanificacionClases(models.Model):
     _name = 'planificacion.clases'
@@ -123,3 +123,20 @@ class PlanificacionClasesLines(models.Model):
     clases_id = fields.Many2one('planificacion.clases', string="Clases")
     curriculo_id = fields.Many2one('planificacion.curriculo', string="Curriculo")
     indicadores_ids = fields.One2many('planificacion.indicadores', 'clases_lines_id', string="Indicadores")
+    
+    @api.onchange('curriculo_id') 
+    def onchange_curriculo_id(self):
+        indicadores_ids = []
+        for val in self.curriculo_id:
+            indicadores = self.env['planificacion.indicadores'].search_read([('curriculo_id', '=', val.id )], ['name', 'id'])
+            #self.indicadores_ids = indicadores
+            print 'INDICADORES'
+            print indicadores
+            for a in indicadores:
+                print a['name']
+                indicadores_ids.append(
+                    [0, 0, {'name': a['name'],
+                    }])
+            self.indicadores_ids = indicadores_ids
+            print indicadores_ids
+            print 'INDICADORES IDS'

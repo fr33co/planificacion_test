@@ -363,7 +363,6 @@
                                 <button name='attachment_tree_view' type='object' string='Añadir adjunto'/>
                             </div>
                             <group col='4'>
-
                                 <field name='adjunto' nolabel='1'>
                                     <tree string='Adjuntos'>
                                         <field name='name'/>
@@ -395,7 +394,7 @@
                 </tree>
             </field>
         </record>
-    
+        
         <record model="ir.ui.view" id="clases_lines_form_view">
             <field name="name">planificacion.clases.lines.form</field>
             <field name="model">planificacion.clases.lines</field>
@@ -406,8 +405,8 @@
                             <field name="curriculo_id"/>
                         </group>
                     </group>
-                    <field name="indicadores_ids" widget="many2many">
-                        <tree string="Indicadores">
+                    <field name="indicadores_ids" widget="one2many_list">
+                        <tree string="Indicadores" onchange="onchange_curriculo_id(curriculo_id)">
                             <field name="name" />
                         </tree>
                     </field>
