@@ -402,12 +402,12 @@
                 <form string="Clases Lines">
                     <group>
                         <group>
-                            <field name="curriculo_id"/>
+                            <field name="curriculo_id" on_change="onchange_curriculo_id(curriculo_id)"/>
                         </group>
                     </group>
-                    <field name="indicadores_ids" widget="one2many_list">
-                        <tree string="Indicadores" onchange="onchange_curriculo_id(curriculo_id)">
-                            <field name="name" />
+                    <field name="indicadores_ids">
+                        <tree string="Indicadores" editable="bottom">
+                            <field name="name"/>
                         </tree>
                     </field>
                 </form>

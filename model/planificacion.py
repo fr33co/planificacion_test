@@ -119,24 +119,40 @@ class PlanificacionClases(models.Model):
 
 class PlanificacionClasesLines(models.Model):
     _name = 'planificacion.clases.lines'
+    
 
     clases_id = fields.Many2one('planificacion.clases', string="Clases")
     curriculo_id = fields.Many2one('planificacion.curriculo', string="Curriculo")
-    indicadores_ids = fields.One2many('planificacion.indicadores', 'clases_lines_id', string="Indicadores")
+    #indicadores_ids = fields.One2many('planificacion.indicadores', 'clases_lines_id', string="Indicadores")
+    indicadores_ids = fields.Many2many(
+        'planificacion.indicadores',
+        'curriculo_indicadores_rel',
+        'indicadores_id',              
+        'curriculo_id',                
+        string='Indicadores',
+        auto_join=False,
+        context="{}",
+        domain="[]",
+        ondelete='cascade',
+    )
+  
+    def onchange_curriculo_id(self, cr, uid, ids, curriculo_id):
+        ids = self.pool.get('planificacion.indicadores').search(cr, uid, [('curriculo_id','=',curriculo_id)])
+        return {'value' : {'indicadores_ids' : ids}} 
     
-    @api.onchange('curriculo_id') 
-    def onchange_curriculo_id(self):
-        indicadores_ids = []
-        for val in self.curriculo_id:
-            indicadores = self.env['planificacion.indicadores'].search_read([('curriculo_id', '=', val.id )], ['name', 'id'])
-            #self.indicadores_ids = indicadores
-            print 'INDICADORES'
-            print indicadores
-            for a in indicadores:
-                print a['name']
-                indicadores_ids.append(
-                    [0, 0, {'name': a['name'],
-                    }])
-            self.indicadores_ids = indicadores_ids
-            print indicadores_ids
-            print 'INDICADORES IDS'
+    # @api.onchange('curriculo_id') 
+    # def onchange_curriculo_id(self):
+    #     indicadores_ids = []
+    #     for val in self.curriculo_id:
+    #         indicadores = self.env['planificacion.indicadores'].search_read([('curriculo_id', '=', val.id )], ['name', 'id'])
+    #         #self.indicadores_ids = indicadores
+    #         print 'INDICADORES'
+    #         print indicadores
+    #         for a in indicadores:
+    #             print a['name']
+    #             indicadores_ids.append(
+    #                 [0, 0, {'name': a['name'],
+    #                 }])
+    #         self.indicadores_ids = indicadores_ids
+    #         print indicadores_ids
+    #         print 'INDICADORES IDS'
